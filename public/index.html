@@ -6,12 +6,15 @@
   </head>
   <body>
     <form>
-      <h1>회원가입</h1>
-      <div>email : <input type="email" /></div>
-      <div>password : <input type="password" /></div>
-      <div><button type="submit">join</button></div>
+      <h1>로그인</h1>
+      <div>email : <input type="email" id="email" value="" /></div>
+      <div>password : <input type="password" id="password" value="" /></div>
+      <div>
+        <button type="button" id="btnLogin">Login</button>
+      </div>
     </form>
     <script type="module">
+      // 기본 셋팅.
       import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js';
 
       const firebaseConfig = {
@@ -25,6 +28,31 @@
 
       const app = initializeApp(firebaseConfig);
       console.log(app);
+
+      // 로그인
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+      } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js';
+
+      document.getElementById('btnLogin').addEventListener('click', (event) => {
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+        const auth = getAuth();
+        signInWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            // ...
+            console.log('로그인에 성공ㅎ');
+            console.log(user);
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode + ' : ' + errorMessage);
+          });
+      });
     </script>
   </body>
 </html>
