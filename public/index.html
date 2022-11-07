@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Firebase Login</title>
+  </head>
+  <body>
+    <form>
+      <h1>회원가입</h1>
+      <div>email : <input type="email" /></div>
+      <div>password : <input type="password" /></div>
+      <div><button type="submit">join</button></div>
+    </form>
+    <script type="module">
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js';
+
+      const firebaseConfig = {
+        apiKey: 'AIzaSyAFLpmTF1G4KEzbankxJuEtlaFejmtjQ2c',
+        authDomain: 'react-study-56c25.firebaseapp.com',
+        projectId: 'react-study-56c25',
+        storageBucket: 'react-study-56c25.appspot.com',
+        messagingSenderId: '737294251353',
+        appId: '1:737294251353:web:25617a2e94c6f3658bc848',
+      };
+
+      const app = initializeApp(firebaseConfig);
+      console.log(app);
+    </script>
+  </body>
+</html>
