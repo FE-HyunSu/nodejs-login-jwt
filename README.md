@@ -1,4 +1,4 @@
-## 📹 webcam control
+## 🏊‍♀️ Firebase login
 
 - nodeJS express.
-- javascript webcam control.
+- Firebase Authentication login.
